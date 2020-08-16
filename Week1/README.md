@@ -72,13 +72,13 @@ tiup playground \
 2. 接着进入 `session.Execute`，SQL 核心层。
 3. session 经过 parse、plan 的前戏后，生成 executor ，最后就是调用 `Next`（火山模型），开始最终的执行了~
 
-![https://download.pingcap.com/images/blog-cn/tidb-source-code-reading-3/2.png](https://download.pingcap.com/images/blog-cn/tidb-source-code-reading-3/2.png) 这张图讲的特别清楚了。
+![SQL 层执行过程](https://download.pingcap.com/images/blog-cn/tidb-source-code-reading-3/2.png)
 
 ### 定位源码位置
 
-所以事务的开始应该是 executor 执行的地方，我们可以从 parser 的语法树里找事务的语句，以及执行事务的 executor 定位到事务开始的地方。
+所以事务的开始应该是 executor 执行的地方，我们可以从 parser 的语法树里关于事务的语句以及从执行事务的 executor 中定位到事务开始的地方。
 
-在 `github.com/pingcap/parser/ast` 里找到开始事务的语句类型 `BeginStmt` ，find usage 可以找到 `executor/simple.go` 里面的函数 `executeBegin` ，这应该就是我们想要的了。在函数的最前面加上一句 `logutil.Logger(ctx).Info("hello transaction")` ，重新编译并运行。
+在 `github.com/pingcap/parser/ast` 里找到开始事务的语句类型 `BeginStmt` ，find usage 可以找到 `executor/simple.go` 里面的函数 `executeBegin` ，这应该就是我们想要的事务开始的 executor 了。在函数的最前面加上一句 `logutil.Logger(ctx).Info("hello transaction")` ，重新编译并运行。
 
 ### 看日志
 

@@ -1,6 +1,6 @@
-# Week1-编译部署 TiDB
+# Lesson1-编译部署 TiDB
 
-本文是 [High Performance TiDB 课程系列](https://docs.qq.com/sheet/DSlBwS3VCb01kTnZw?tab=BB08J2) Week 1 的课程作业。
+本文是 [High Performance TiDB 课程系列](https://docs.qq.com/sheet/DSlBwS3VCb01kTnZw?tab=BB08J2) Lesson 1 的课程作业。
 
 ## 题目描述
 

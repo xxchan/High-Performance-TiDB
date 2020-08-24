@@ -1,3 +1,4 @@
 # High-Performance-TiDB
 
-[Week 1 Homework](./Week1/README.md)
+- [Lesson 1 Homework](./Lesson1/README.md)
+- [Lesson 2 Homework](./Lesson2/README.md)
